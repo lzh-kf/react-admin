@@ -1,0 +1,22 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+}
+
+.login,
+.content,
+h4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+    flex-wrap: wrap;
+}
+
+h4 {
+    width: 100%;
+    padding-left: 74px;
+    margin-bottom: 20px;
+}
