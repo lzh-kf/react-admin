@@ -44,7 +44,7 @@ function renderColumns ({ handleEdit, handleDel }) {
                         <Button type="primary" onClick={() => handleEdit(record)} style={{ marginRight: '10px' }}>编辑</Button>
                         <Popconfirm
                             title="确定删除该条记录吗?"
-                            onConfirm={() => handleDel({ id: record._id })}
+                            onConfirm={() => handleDel({ _id: record._id })}
                             okText="确认"
                             cancelText="取消"
                         >
