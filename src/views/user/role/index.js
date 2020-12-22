@@ -18,7 +18,7 @@ function Role (props) {
                             <Button type="primary" htmlType="submit">查询</Button>
                         </Form.Item>
                         <Form.Item>
-                            <Button onClick={() => props._idreset()}>重置</Button>
+                            <Button onClick={() => props.reset()}>重置</Button>
                         </Form.Item>
                     </Form>
                 </Col>

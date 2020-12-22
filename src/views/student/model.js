@@ -34,7 +34,7 @@ const config = {
     createTitle: '创建学生',
     editTitle: '编辑学生',
     setParams: (values, props) => {
-        return { ...values, id: props.formData._id }
+        return { ...values, _id: props.formData._id }
     }
 }
 
