@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
 function usePaginationConfig () {
-    
-    const [list, setList] = useState([]);
 
-    const [total, setTotal] = useState(0);
-    
+    const [list, setList] = useState([])
+
+    const [total, setTotal] = useState(0)
+
     const [pagination, setPagination] = useState({
         pageNum: 1,
-        pageSize: 10,
+        pageSize: 10
     })
 
     const onChange = (page, pageSize) => {

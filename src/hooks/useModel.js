@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Form, Modal, message } from 'antd';
+import { useState, useEffect } from 'react'
+import { Form, Modal, message } from 'antd'
 
 function useBuildModel (PageComponent, props, config) {
 
     const [form] = Form.useForm()
 
-    const [isRefresh, setIsRefresh] = useState(false);
+    const [isRefresh, setIsRefresh] = useState(false)
 
     const layout = {
         labelCol: {
@@ -13,8 +13,8 @@ function useBuildModel (PageComponent, props, config) {
         },
         wrapperCol: {
             span: 16,
-        },
-    };
+        }
+    }
 
     useEffect(() => {
         form.resetFields()

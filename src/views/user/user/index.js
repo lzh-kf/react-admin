@@ -1,7 +1,7 @@
 import { Button, Form, Input, Row, Col } from 'antd'
-import { deteleUser, queryUser } from '../../../apis/user/index'
+import { deteleUser, queryUser } from '@/apis/user/index'
 import renderColumns from './config'
-import BuildPage from '../../../hooks/useBuildPage'
+import BuildPage from '@/hooks/useBuildPage'
 import Modal from './model'
 
 function User (props) {

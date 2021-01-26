@@ -1,16 +1,16 @@
-import { Form, message, Table } from 'antd';
-import { useState, useEffect } from 'react';
+import { Form, message, Table } from 'antd'
+import { useState, useEffect } from 'react'
 import usePaginationConfig from './usePaginationConfig'
 
 function useRenderPageComponent (PageComponent, props, config) {
 
-    const { list, setList, setTotal, pagination, paginationConfig } = usePaginationConfig();
+    const { list, setList, setTotal, pagination, paginationConfig } = usePaginationConfig()
 
-    const [form] = Form.useForm();
+    const [form] = Form.useForm()
 
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(false)
 
-    const [searchParams, setSearchParams] = useState({});
+    const [searchParams, setSearchParams] = useState({})
 
     const [visible, setVisible] = useState(false)
 

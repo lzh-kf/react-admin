@@ -1,10 +1,10 @@
-import { Form, Input, Button } from 'antd';
-import styles from './index.module.css';
-import React from 'react';
-import { login } from "../../apis/login/index";
-import { setSession } from '../../utils/cache'
-import store from '../../store/index'
-import md5 from "blueimp-md5";
+import React from 'react'
+import { Form, Input, Button } from 'antd'
+import styles from './index.module.css'
+import { login } from "@/apis/login/index"
+import { setSession } from '@/utils/cache'
+import store from '@/store/index'
+import md5 from "blueimp-md5"
 
 function Login ({ history }) {
   const layout = {
@@ -42,16 +42,16 @@ function Login ({ history }) {
   return (
     <div className={styles.login}>
       <div className={styles.content}>
-        <h4 className={styles.h4}>自定义后台管理系统</h4>
+        <h4 className={styles.h4}>admin-system</h4>
         <Form
           {...layout}
           name="basic"
-          initialValues={{ remember: true }}
+          initialValues={{ remember: true, userAccount: 'admin', password: 'a123456' }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
         >
           <Form.Item
-            label="用户名"
+            label="账号"
             name="userAccount"
             rules={[{ required: true, message: '请输入账号' }]}
           >

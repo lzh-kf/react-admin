@@ -1,6 +1,6 @@
 import { Button, Form, Input, Select, Row, Col } from 'antd'
-import { querStudent, deteleStudent } from '../../../apis/student/index'
-import useBuildPage from '../../../hooks/useBuildPage'
+import { querStudent, deteleStudent } from '@/apis/student/index'
+import useBuildPage from '@/hooks/useBuildPage'
 import renderColumns from './config'
 import Modal from '../model'
 

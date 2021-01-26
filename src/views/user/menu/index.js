@@ -1,7 +1,7 @@
 import { Tree, Button, Popconfirm } from 'antd';
-import { queryMenu, deteleMenu } from "../../../apis/user/menu";
-import BuildPage from '../../../hooks/useBuildPage'
-import { findParentElement } from "../../../utils/index";
+import { queryMenu, deteleMenu } from "@/apis/user/menu";
+import BuildPage from '@/hooks/useBuildPage'
+import { findParentElement } from "@/utils/index";
 import styles from './index.module.css';
 import Modal from './model'
 

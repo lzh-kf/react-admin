@@ -1,25 +1,25 @@
 function findParentElement (data, parentId, tempdata) {
-  const result = [];
-  const { length } = data;
+  const result = []
+  const { length } = data
   for (let i = 0; i < length; i++) {
-    const item = data[i];
+    const item = data[i]
     if (item.menuId === parentId) {
       result.unshift({
         path: item.path,
         name: item.menuName,
         menuId: item.menuId,
         parentId: item.parentId
-      });
+      })
       if (item.parentId !== 0) {
-        result.unshift(...findParentElement(tempdata, item.parentId, tempdata));
+        result.unshift(...findParentElement(tempdata, item.parentId, tempdata))
       } else {
-        break;
+        break
       }
     } else if (item.children && item.children.length) {
-      result.unshift(...findParentElement(item.children, parentId, tempdata));
+      result.unshift(...findParentElement(item.children, parentId, tempdata))
     }
   }
-  return result;
+  return result
 }
 
-export { findParentElement };
+export { findParentElement }

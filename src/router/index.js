@@ -1,6 +1,6 @@
-import React, { lazy, Suspense } from "react";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
-import loading from '../views/loading/index'
+import React, { lazy, Suspense } from "react"
+import { BrowserRouter, Route, Redirect } from "react-router-dom"
+import loading from '@/views/loading/index'
 import proxyHistory from './hook'
 
 const routerConfig = [
@@ -11,11 +11,11 @@ const routerConfig = [
     },
     {
         path: '/login',
-        component: lazy(() => import('../views/login/index'))
+        component: lazy(() => import('@/views/login/index'))
     },
     {
         path: '/menu',
-        component: lazy(() => import('../views/menus/index')),
+        component: lazy(() => import('@/views/menus/index')),
         children: []
     },
 ]
@@ -23,7 +23,7 @@ const routerConfig = [
 
 const setRouter = (config) => {
     return (
-        <Router>
+        <BrowserRouter>
             <Suspense fallback={loading()}>
                 {
                     config.map((item) => {
@@ -48,7 +48,7 @@ const setRouter = (config) => {
                     })
                 }
             </Suspense>
-        </Router >
+        </BrowserRouter>
     )
 }
 

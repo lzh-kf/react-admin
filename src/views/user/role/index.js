@@ -1,6 +1,6 @@
 import { Button, Form, Input, Row, Col } from 'antd'
-import { roleDel, roleQuery } from '../../../apis/user/role'
-import BuildPage from '../../../hooks/useBuildPage'
+import { roleDel, roleQuery } from '@/apis/user/role'
+import BuildPage from '@/hooks/useBuildPage'
 import renderColumns from './config'
 import Modal from './model'
 

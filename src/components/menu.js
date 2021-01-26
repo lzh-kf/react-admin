@@ -1,7 +1,7 @@
-import { Menu } from 'antd';
-import React, { useState, useEffect } from 'react';
-import store from '../store/index'
-const { SubMenu } = Menu;
+import { Menu } from 'antd'
+import React, { useState, useEffect } from 'react'
+import store from '@/store/index'
+const { SubMenu } = Menu
 
 function renderMenu (item) {
     return (
@@ -63,4 +63,4 @@ function MenuComponent ({ history }) {
 
 
 
-export default MenuComponent;
+export default MenuComponent

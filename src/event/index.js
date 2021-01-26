@@ -1,4 +1,4 @@
-import EventLister from '../utils/eventLister'
+import EventLister from '@/utils/eventLister'
 
 const eventLister = new EventLister()
 

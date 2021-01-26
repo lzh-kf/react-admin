@@ -2,7 +2,7 @@ import { Form, Input, Modal, Cascader } from 'antd';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { message } from 'antd';
-import { createMenu, updateMenu } from "../../../apis/user/menu";
+import { createMenu, updateMenu } from "@/apis/user/menu";
 
 const layout = {
     labelCol: { span: 5 },

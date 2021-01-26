@@ -1,52 +1,53 @@
-import axios from "axios";
-import { message } from 'antd';
-import { refreshToken } from "../apis/index";
-import { setSession } from './cache'
-axios.defaults.baseURL = process.env.REACT_APP_API;
-const whiteUrl = ["/login", "/queryMenusAndPermission"];
-// 添加请求拦截器
-axios.interceptors.request.use(
-    config => {
-        const { action, url } = config;
-        if (
-            action &&
-            !whiteUrl.includes(url)
-        ) {
-            // throw new Error("暂无权限");
-        }
-        config.headers.common["Authorization"] = setSession.token;
-        return config;
-    },
-    error => {
-        // 对请求错误做些什么
-        return Promise.reject(error);
-    }
-);
+import axios from 'axios'
+import { setSession } from "./cache"
+import { message } from 'antd'
+import { refreshToken } from '@/apis/login'
 
-// 添加响应拦截器
-axios.interceptors.response.use(
-    async response => {
-        const { data } = response;
-        if (data.err_code === 0) {
-            return [null, response.data];
-        } else if (data.err_code === 1001) {
-            const [error, data] = await refreshToken();
-            const { token } = data.data;
-            if (error) {
-                console.log(error);
-            } else {
-                sessionStorage.setItem("token", token);
-            }
+axios.defaults.baseURL = process.env.REACT_APP_API
+
+let token
+
+const handleError = (msg, data) => {
+    message.info(msg)
+    return [data, null]
+}
+
+axios.interceptors.request.use((config) => {
+    if (token) {
+        config.headers.common["Authorization"] = token
+        console.log('token11', token)
+    } else {
+        token = setSession.token
+        console.log('token', token)
+        config.headers.common["Authorization"] = token
+    }
+    return config;
+}, (error) => {
+    return Promise.reject(error);
+});
+
+axios.interceptors.response.use(async (response) => {
+    if (response.data.err_code === 0) {
+        if (response.config.url === '/logout') {
+            token = undefined
+        }
+        return [null, response.data];
+    } else if (response.data.err_code === 1001) {
+        // token过期
+        const [error, responseData] = await refreshToken({ userAccount: setSession.user.userAccount });
+        console.log(error)
+        response.config.headers.Authorization = setSession.token = token = responseData.data.token;
+        const [, refreshResponse] = await axios(response.config);
+        if (refreshResponse.err_code === 0) {
+            return [null, refreshResponse];
         } else {
-            message.error(data.error.message)
-            return [response.data, null];
+            if (refreshResponse.error) {
+                return handleError(refreshResponse.error.message, refreshResponse)
+            }
         }
-    },
-    error => {
-        message.error(error.message)
-        // 对响应错误做点什么
-        return Promise.reject(error);
+    } else {
+        return handleError(response.data.error.message, response.data)
     }
-);
+}, (error) => handleError(error.message, null))
 
-export default axios;
+export default axios

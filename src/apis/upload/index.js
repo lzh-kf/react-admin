@@ -1,6 +1,6 @@
-import request from "../request";
+import request from "@/utils/request"
 
-const upload = (data = {}) => {
+const upload = (data) => {
   return request({
     method: "post",
     url: "/base/upload",
@@ -8,7 +8,7 @@ const upload = (data = {}) => {
       "content-type": "multipart/form-data"
     },
     data
-  });
-};
+  })
+}
 
-export { upload };
+export { upload }

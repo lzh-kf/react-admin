@@ -1,9 +1,9 @@
-import Menu from '../../components/menu'
 import React, { useState, useEffect } from 'react'
 import { Layout } from 'antd'
-import store from '../../store/index'
-import generateRoutes from '../../utils/generateRoute'
-import { setMenusAndPermission } from '../../utils/setMenuAndPermission'
+import Menu from '@/components/menu'
+import store from '@/store'
+import generateRoutes from '@/utils/generateRoute'
+import { setMenusAndPermission } from '@/utils/setMenuAndPermission'
 
 const { Sider, Content } = Layout;
 
@@ -17,7 +17,7 @@ function Menus (props) {
         store.subscribeMutation(type, (routes) => {
             setChildRoutes(generateRoutes(routes))
         })
-        pathname === '/menu' && history.replace('/menu/user/index')
+        pathname === '/menu' && history.replace('/menu/user/user')
         return () => store.unSubscribeMutation(type)
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])

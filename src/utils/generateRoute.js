@@ -1,5 +1,5 @@
-import { Route } from "react-router-dom";
-import React, { lazy } from 'react';
+import { Route } from "react-router-dom"
+import React, { lazy } from 'react'
 
 function generateRoutes (routes) {
     return (
@@ -7,7 +7,7 @@ function generateRoutes (routes) {
             {
                 routes.map(item => {
                     return (
-                        <Route path={'/menu' + item.path} key={'/menu' + item.path} strict={true} exact={true} component={lazy(() => import(`../views${item.componentFilePath}/index`))}></Route>
+                        <Route path={'/menu' + item.path} key={'/menu' + item.path} strict={true} exact={true} component={lazy(() => import(`@/views${item.componentFilePath}/index`))}></Route>
                     )
                 })
             }

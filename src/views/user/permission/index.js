@@ -1,7 +1,7 @@
 import { Tree, Button, Popconfirm } from 'antd';
-import { permissionDel, permissionQuery } from "../../../apis/user/permission";
-import { findParentElement } from "../../../utils/index";
-import BuildPage from '../../../hooks/useBuildPage'
+import { permissionDel, permissionQuery } from "@/apis/user/permission";
+import { findParentElement } from "@/utils/index";
+import BuildPage from '@/hooks/useBuildPage'
 import styles from './index.module.css';
 import Modal from './model'
 
